@@ -1,0 +1,17 @@
+FileVersion = 1
+Dependencies = {corlib = "*", SDL2 = "*", imgui-beef = "*"}
+
+[Project]
+Name = "imguibgfx-beef"
+
+[Configs.Debug.Win64]
+LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
+
+[Configs.Release.Win64]
+LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
+
+[Configs.Paranoid.Win64]
+LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
+
+[Configs.Test.Win64]
+LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
