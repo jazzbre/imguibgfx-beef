@@ -7,10 +7,11 @@
 [ImGui-Beef](https://github.com/qzole/imgui-beef)
 
 To build C/C++ API it needs the following parallel structure:
+
 Root-Directory\
-    |__ imguibgfx-beef\    (this repository)
-    |__ bgfx-beef\         (https://github.com/jazzbre/bgfx-beef.git)
-    |__ SDL2\              (any mirror or unpacked zip will do)
+    |__ imguibgfx-beef\
+    |__ bgfx-beef\
+    |__ SDL2\
 
 ## Prerequisites
 - Visual Studio 2019 Community/Professional (it can be built with other versions though, check build_windows_vs2019.cmd for more information)
