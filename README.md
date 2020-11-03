@@ -21,5 +21,7 @@ Root-Directory\
 
 Open workspace and set Example as Startup project and Run!
 
+![](screenshot.png)
+
 ## Future work
 iOS, Android, macOS and Linux build scripts.
