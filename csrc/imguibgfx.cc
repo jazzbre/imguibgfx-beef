@@ -11,6 +11,13 @@
 #include "vs_imgui_texture.bin.h"
 #include "fs_ocornut_imgui.bin.h"
 
+// Constants
+enum class BgfxTextureFlags : uint32_t {
+	Opaque = 1u << 31,
+	PointSampler = 1u << 30,
+	All = Opaque | PointSampler,
+};
+
 // Shaders
 static const bgfx::EmbeddedShader s_embeddedShaders[] = {
 	BGFX_EMBEDDED_SHADER(vs_imgui_texture),
@@ -272,14 +279,27 @@ static void BgfxImGuiRender(bgfx::ViewId viewId, ImDrawData* draw_data, uint32_t
 				cmd->UserCallback(draw_list, cmd);
 			}
 			else if (0 != cmd->ElemCount) {
-				uint64_t state = 0 | BGFX_STATE_WRITE_RGB | BGFX_STATE_WRITE_A | BGFX_STATE_MSAA;
+				uint64_t state = 0 | BGFX_STATE_WRITE_RGB | BGFX_STATE_WRITE_A;
 				uint32_t sampler_state = 0;
 
 				bgfx::TextureHandle th = m_texture;
 				bgfx::ProgramHandle program = m_program;
 
-				state |= BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_SRC_ALPHA, BGFX_STATE_BLEND_INV_SRC_ALPHA);
-
+				auto alphaBlend = true;
+				if (cmd->TextureId != nullptr) {
+					auto textureInfo = (uintptr_t)cmd->TextureId;
+					if (textureInfo & (uint32_t)BgfxTextureFlags::Opaque) {
+						alphaBlend = false;
+					}
+					if (textureInfo & (uint32_t)BgfxTextureFlags::PointSampler) {
+						sampler_state = BGFX_SAMPLER_POINT;
+					}
+					textureInfo &= ~(uint32_t)BgfxTextureFlags::All;
+					th = { (uint16_t)textureInfo };
+				}
+				if (alphaBlend) {
+					state |= BGFX_STATE_BLEND_FUNC(BGFX_STATE_BLEND_SRC_ALPHA, BGFX_STATE_BLEND_INV_SRC_ALPHA);
+				}
 				const uint16_t xx0 = uint16_t(cmd->ClipRect.x - position.x);
 				const uint16_t yy0 = uint16_t(cmd->ClipRect.y - position.y);
 				const uint16_t xx1 = uint16_t(cmd->ClipRect.z - position.x);
