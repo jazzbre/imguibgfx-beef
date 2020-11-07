@@ -3,7 +3,7 @@ using SDL2;
 
 namespace imgui_beef
 {
-	static extension ImGui
+	extension ImGui
 	{
 		public enum BgfxTextureFlags : uint32 {
 			Opaque = 1 << 31,
@@ -29,5 +29,8 @@ namespace imgui_beef
 			var textureInfo = (uint32)textureHandle | (uint32)flags;
 			return (void*)(uint)textureInfo;
 		}
+
+		[LinkName("ImguiBeginDockSpace")]
+		public static extern void BeginDockSpace(ImGuiID dockspaceId, char8* windowName); // NOTE: after this menu can be setup and ImGui.End needs to be called
 	}
 }
