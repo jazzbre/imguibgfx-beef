@@ -31,6 +31,6 @@ namespace imgui_beef
 		}
 
 		[LinkName("ImguiBeginDockSpace")]
-		public static extern void BeginDockSpace(ImGuiID dockspaceId, char8* windowName); // NOTE: after this menu can be setup and ImGui.End needs to be called
+		public static extern void BeginDockSpace(ImGuiID dockspaceId, char8* windowName, ImGui.WindowFlags windowFlags = 0); // NOTE: after this menu can be setup and ImGui.End needs to be called
 	}
 }

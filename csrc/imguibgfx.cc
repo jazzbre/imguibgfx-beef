@@ -337,9 +337,9 @@ extern "C" void ImguiBgfxRenderFrame(uint8_t viewId) {
 	}
 }
 
-extern "C" void ImguiBeginDockSpace(ImGuiID dockspaceId, const char* windowName) {
+extern "C" void ImguiBeginDockSpace(ImGuiID dockspaceId, const char* windowName, ImGuiWindowFlags windowFlags) {
 	ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_PassthruCentralNode;
-	ImGuiWindowFlags   window_flags = ImGuiWindowFlags_NoDocking;
+	ImGuiWindowFlags   window_flags = ImGuiWindowFlags_NoDocking | windowFlags;
 	ImGuiViewport* viewport = ImGui::GetMainViewport();
 	ImGui::SetNextWindowPos(viewport->Pos);
 	ImGui::SetNextWindowSize(viewport->Size);
