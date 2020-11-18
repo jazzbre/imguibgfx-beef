@@ -356,3 +356,15 @@ extern "C" void ImguiBeginDockSpace(ImGuiID dockspaceId, const char* windowName,
 	ImGui::PopStyleVar(2);
 	ImGui::DockSpace(dockspaceId, ImVec2(0.0f, 0.0f), dockspace_flags);	
 }
+
+extern "C" void* ImguiPayloadData(ImGuiPayload * payload) {
+	return payload->Data;
+}
+
+extern "C" int ImguiPayloadSize(ImGuiPayload * payload) {
+	return payload->DataSize;
+}
+
+extern "C" const char* ImguiPayloadType(ImGuiPayload * payload) {
+	return payload->DataType;
+}
