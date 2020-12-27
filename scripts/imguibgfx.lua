@@ -5,7 +5,7 @@ project "imguibgfx"
    includedirs {
       path.join(SOURCE_DIR, "cimgui/imgui"),
       path.join(SOURCE_DIR, "bx/include"),
-      path.join(SOURCE_DIR, "../../SDL2/include"),
+      path.join(SOURCE_DIR, "../../sdl2-beef/submodules/SDL/include"),
       path.join(SOURCE_DIR, "cimgui/imgui/examples"),
       path.join(SOURCE_DIR, "../../bgfx-beef/submodules/bgfx/include"),
       path.join(SOURCE_DIR, "../../bgfx-beef/submodules/bgfx/examples/common/imgui"),

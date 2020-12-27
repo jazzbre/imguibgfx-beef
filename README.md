@@ -9,10 +9,12 @@
 To build C/C++ API it needs the following parallel structure:
 ```
 Root-Directory\
+    |__ sdl2-beef\
+    |__ bgfx-beef\    
     |__ imguibgfx-beef\
-    |__ bgfx-beef\
-    |__ SDL2\
 ```
+
+You need to clone [sdl2-beef](https://github.com/jazzbre/sdl2-beef) and [bgfx-beef](https://github.com/jazzbre/bgfx-beef) by yourself.
 
 ## Prerequisites
 - To initialize submodules run *git submodule update --init --recursive*

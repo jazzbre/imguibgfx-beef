@@ -1,5 +1,5 @@
 FileVersion = 1
-Dependencies = {corlib = "*", SDL2 = "*", imgui-beef = "*"}
+Dependencies = {corlib = "*", sdl2-beef = "*", imgui-beef = "*"}
 
 [Project]
 Name = "imguibgfx-beef"
@@ -15,3 +15,15 @@ LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
 
 [Configs.Test.Win64]
 LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
+
+[Configs.Debug.macOS]
+LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxDebug.a"]
+
+[Configs.Release.macOS]
+LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxRelease.a"]
+
+[Configs.Paranoid.macOS]
+LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxRelease.a"]
+
+[Configs.Test.macOS]
+LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxRelease.a"]
