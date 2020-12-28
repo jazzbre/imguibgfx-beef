@@ -1,12 +1,4 @@
 @echo off
-IF EXIST "..\SDL2" (
-   echo SDL2 found!
-) else (
-   echo SDL2 path not found! Please clone or unpack to ..\SDL2
-   pause
-   exit 1
-)
-
 
 IF EXIST "..\bgfx-beef" (
    echo bgfx-beef found!
