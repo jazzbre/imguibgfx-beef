@@ -27,3 +27,15 @@ LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxRelease.a"]
 
 [Configs.Test.macOS]
 LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxRelease.a"]
+
+[Configs.Debug.Linux64]
+LibPaths = ["$(ProjectDir)\\.build\\linux64_gcc\\bin\\libimguibgfxDebug.a"]
+
+[Configs.Release.Linux64]
+LibPaths = ["$(ProjectDir)\\.build\\linux64_gcc\\bin\\libimguibgfxRelease.a"]
+
+[Configs.Paranoid.Linux64]
+LibPaths = ["$(ProjectDir)\\.build\\linux64_gcc\\bin\\libimguibgfxRelease.a"]
+
+[Configs.Test.Linux64]
+LibPaths = ["$(ProjectDir)\\.build\\linux64_gcc\\bin\\libimguibgfxRelease.a"]
