@@ -62,8 +62,8 @@ namespace example
 			}
 
 			// Main loop!
-			bool quit = false;
-			while (!quit)
+			var quitting = false;
+			while (!quitting)
 			{
 				SDL.Event event;
 				while (SDL.PollEvent(out event) != 0)
@@ -71,6 +71,8 @@ namespace example
 					ImGui.BgfxProcessEvent(&event);
 					switch (event.type)
 					{
+					case .Quit:
+						quitting = true;
 					case .WindowEvent:
 						switch (event.window.windowEvent) {
 						case .Resized:
@@ -81,19 +83,9 @@ namespace example
 								bgfx.reset((uint32)width, (uint32)height, (uint32)bgfx.ResetFlags.Vsync, Bgfx.bgfx.TextureFormat.Count);
 								Console.WriteLine("Resized {0}x{0}", width, height);
 							}
-							break;
-						case .Close:
-							if (event.window.windowID == SDL.GetWindowID(window))
-							{
-								quit = true;
-							}
-							break;
 						default:
-							break;
 						}
-						break;
 					default:
-						break;
 					}
 				}
 				// Clear

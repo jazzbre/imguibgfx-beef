@@ -31,8 +31,8 @@ You need to clone [sdl2-beef](https://github.com/jazzbre/sdl2-beef) and [bgfx-be
 
 
 ## Usage
-
 Open workspace and set Example as Startup project and Run!
+MacOS/Linux can be built and run with provided VSCode project (expects Beef git clone in the same root folder as this project).
 
 ![](screenshot.png)
 
