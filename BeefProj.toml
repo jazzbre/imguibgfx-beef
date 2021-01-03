@@ -17,16 +17,16 @@ LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
 LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
 
 [Configs.Debug.macOS]
-LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxDebug.a"]
+LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxDebug.a"]
 
 [Configs.Release.macOS]
-LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxRelease.a"]
+LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxRelease.a"]
 
 [Configs.Paranoid.macOS]
-LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxRelease.a"]
+LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxRelease.a"]
 
 [Configs.Test.macOS]
-LibPaths = ["$(ProjectDir)\\.build\\osx64_clang\\bin\\libimguibgfxRelease.a"]
+LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxRelease.a"]
 
 [Configs.Debug.Linux64]
 LibPaths = ["$(ProjectDir)\\.build\\linux64_gcc\\bin\\libimguibgfxDebug.a"]
