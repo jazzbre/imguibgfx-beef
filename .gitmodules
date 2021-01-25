@@ -1,9 +1,6 @@
-[submodule "submodules/cimgui"]
-	path = submodules/cimgui
-	url = https://github.com/cimgui/cimgui.git
 [submodule "submodules/bx"]
 	path = submodules/bx
 	url = https://github.com/bkaradzic/bx.git
 [submodule "submodules/imgui-beef"]
 	path = submodules/imgui-beef
-	url = https://github.com/jazzbre/imgui-beef.git
+	url = https://github.com/RogueMacro/imgui-beef.git

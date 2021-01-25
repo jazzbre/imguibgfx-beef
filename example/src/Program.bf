@@ -1,7 +1,7 @@
 using System;
 using SDL2;
 using Bgfx;
-using imgui_beef;
+using ImGui;
 
 namespace example
 {
@@ -28,10 +28,10 @@ namespace example
 			platformData.ndt = null;
 #if BF_PLATFORM_WINDOWS
 			platformData.nwh = (void*)(int)info.info.win.window;
-#elif BF_PLATFORM_MACOS
-                        platformData.nwh = (void*)(int)info.info.cocoa.window;
-#elif BF_PLATFORM_LINUX
-                        platformData.nwh = (void*)(int)info.info.x11.window;
+			#elif BF_PLATFORM_MACOS
+						platformData.nwh = (void*)(int)info.info.cocoa.window;
+			#elif BF_PLATFORM_LINUX
+						platformData.nwh = (void*)(int)info.info.x11.window;
 #endif
 
 			bgfx.render_frame(0);
@@ -50,7 +50,7 @@ namespace example
 			bgfx.init(&init);
 
 			// Initialize ImGui
-			context = ImGui.CreateContext();
+			context = &ImGui.CreateContext();
 			ImGui.StyleColorsDark();
 
 			ImGui.GetIO().ConfigFlags |= .NavEnableKeyboard;// Enable Keyboard Navigation Controls

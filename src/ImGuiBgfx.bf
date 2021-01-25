@@ -1,7 +1,7 @@
 using System;
 using SDL2;
 
-namespace imgui_beef
+namespace ImGui
 {
 	extension ImGui
 	{
@@ -33,7 +33,7 @@ namespace imgui_beef
 		}
 
 		[LinkName("ImguiBeginDockSpace")]
-		public static extern void BeginDockSpace(ImGuiID dockspaceId, char8* windowName, ImGui.WindowFlags windowFlags = 0);
+		public static extern void BeginDockSpace(ID dockspaceId, char8* windowName, ImGui.WindowFlags windowFlags = 0);
 		// // NOTE: after this menu can be setup and ImGui.End needs to be called
 
 		[LinkName("ImguiPayloadData")]

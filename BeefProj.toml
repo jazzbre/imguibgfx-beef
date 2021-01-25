@@ -1,5 +1,5 @@
 FileVersion = 1
-Dependencies = {corlib = "*", sdl2-beef = "*", imgui-beef = "*"}
+Dependencies = {corlib = "*", sdl2-beef = "*"}
 
 [Project]
 Name = "imguibgfx-beef"
@@ -7,35 +7,35 @@ Name = "imguibgfx-beef"
 [Configs.Debug.Win64]
 LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxDebug.lib"]
 
-[Configs.Release.Win64]
-LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
-
-[Configs.Paranoid.Win64]
-LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
-
-[Configs.Test.Win64]
-LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
-
 [Configs.Debug.macOS]
 LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxDebug.a"]
-
-[Configs.Release.macOS]
-LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxRelease.a"]
-
-[Configs.Paranoid.macOS]
-LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxRelease.a"]
-
-[Configs.Test.macOS]
-LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxRelease.a"]
 
 [Configs.Debug.Linux64]
 LibPaths = ["$(ProjectDir)\\.build\\linux64_gcc\\bin\\libimguibgfxDebug.a"]
 
+[Configs.Release.Win64]
+LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
+
+[Configs.Release.macOS]
+LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxRelease.a"]
+
 [Configs.Release.Linux64]
 LibPaths = ["$(ProjectDir)\\.build\\linux64_gcc\\bin\\libimguibgfxRelease.a"]
 
+[Configs.Paranoid.Win64]
+LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
+
+[Configs.Paranoid.macOS]
+LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxRelease.a"]
+
 [Configs.Paranoid.Linux64]
 LibPaths = ["$(ProjectDir)\\.build\\linux64_gcc\\bin\\libimguibgfxRelease.a"]
+
+[Configs.Test.Win64]
+LibPaths = ["$(ProjectDir)\\.build\\win64_vs2019\\bin\\imguibgfxRelease.lib"]
+
+[Configs.Test.macOS]
+LibPaths = ["$(ProjectDir)\\.build\\osx-x64\\bin\\libimguibgfxRelease.a"]
 
 [Configs.Test.Linux64]
 LibPaths = ["$(ProjectDir)\\.build\\linux64_gcc\\bin\\libimguibgfxRelease.a"]

@@ -1,5 +1,5 @@
 FileVersion = 1
-Projects = {sdl2-beef = {Path = "../sdl2-beef"}, example = {Path = "example"}, bgfx-beef = {Path = "../bgfx-beef"}, imgui-beef = {Path = "submodules/imgui-beef/imgui-beef"}, imguibgfx-beef = {Path = "."}}
+Projects = {sdl2-beef = {Path = "../sdl2-beef"}, example = {Path = "example"}, bgfx-beef = {Path = "../bgfx-beef"}, imguibgfx-beef = {Path = "."}}
 
 [Workspace]
 StartupProject = "example"
