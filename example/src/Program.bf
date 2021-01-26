@@ -50,7 +50,7 @@ namespace example
 			bgfx.init(&init);
 
 			// Initialize ImGui
-			context = &ImGui.CreateContext();
+			context = ImGui.CreateContext();
 			ImGui.StyleColorsDark();
 
 			ImGui.GetIO().ConfigFlags |= .NavEnableKeyboard;// Enable Keyboard Navigation Controls
