@@ -12,12 +12,34 @@ namespace example
 		int32 width = 640;
 		int32 height = 480;
 
+#if BF_PLATFORM_ANDROID
+		[CLink] private static extern void* Android_JNI_GetNativeWindow();
+#endif
+
+		private void ResetBgfx()
+		{
+			// We need to reset native window on android
+#if BF_PLATFORM_ANDROID
+			var platformData = bgfx.PlatformData();
+			platformData.ndt = null;
+			platformData.nwh = Android_JNI_GetNativeWindow();
+			bgfx.set_platform_data(&platformData);
+#endif
+			bgfx.reset((uint32)width, (uint32)height, (uint32)bgfx.ResetFlags.Vsync, Bgfx.bgfx.TextureFormat.Count);
+			SDL.Log(scope $"Reset {width}x{height}");
+		}
+
 		private int Test()
 		{
 			// Initialize SDL
 			SDL.Init(.Video | .Events);
 			// Create window
-			window = SDL.CreateWindow("ImGuiBgfx Example", .Undefined, .Undefined, width, height, .Shown | .Resizable);
+			SDL2.SDL.WindowFlags flags = .Shown | .Resizable;
+			// Force "vulkan" and fullscreen on android
+#if BF_PLATFORM_ANDROID
+			 flags |= .Vulkan | .Fullscreen;
+#endif
+			window = SDL.CreateWindow("ImGuiBgfx Example", .Undefined, .Undefined, width, height, flags);
 			SDL.MaximizeWindow(window);
 
 			// Initialize bgfx
@@ -32,6 +54,8 @@ namespace example
 						platformData.nwh = (void*)(int)info.info.cocoa.window;
 			#elif BF_PLATFORM_LINUX
 						platformData.nwh = (void*)(int)info.info.x11.window;
+			#elif BF_PLATFORM_ANDROID
+						platformData.nwh = Android_JNI_GetNativeWindow();
 #endif
 
 			bgfx.render_frame(0);
@@ -80,9 +104,11 @@ namespace example
 							{
 								width = event.window.data1;
 								height = event.window.data2;
-								bgfx.reset((uint32)width, (uint32)height, (uint32)bgfx.ResetFlags.Vsync, Bgfx.bgfx.TextureFormat.Count);
-								Console.WriteLine("Resized {0}x{0}", width, height);
+								ResetBgfx();
 							}
+						case .FocusGained:
+							ResetBgfx();
+							break;
 						default:
 						}
 					default:

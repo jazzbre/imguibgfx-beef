@@ -29,6 +29,9 @@ project "imguibgfx"
 
 	configuration {}
 	
+   configuration { "linux* or vs20* or osx*" }
+      defines { "IMGUIBGFX_VIEWPORTS" }
+   
 	configuration { "linux*" }
 	defines {
 		"SDL_VIDEO_DRIVER_X11"

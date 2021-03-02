@@ -182,10 +182,13 @@ extern "C" bool ImguiBgfxInitialize(SDL_Window * window) {
 	ImGuiIO& io = ImGui::GetIO();
 	// Enable docking and viewports
 	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;       // Enable Docking
-	io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;     // Enable Multi-Viewport / Platform Windows
 	// Setup render flags
 	io.BackendFlags |= ImGuiBackendFlags_RendererHasVtxOffset;  // We can honor the ImDrawCmd::VtxOffset field, allowing for large meshes.
+
+#if defined(IMGUIBGFX_VIEWPORTS)
+	io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;			// Enable Multi-Viewport / Platform Windows
 	io.BackendFlags |= ImGuiBackendFlags_RendererHasViewports;  // We can create multi-viewports on the Renderer side (optional)
+#endif
 
 	// Initialize SDL2
 	if (!ImGui_ImplSDL2_InitForOpenGL(window, nullptr)) {
