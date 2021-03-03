@@ -7,8 +7,8 @@ namespace ImGui
 	{
 		public enum BgfxTextureFlags : uint32
 		{
-			Opaque = 1 << 31,
-			PointSampler = 1 << 30,
+			Opaque = 1 << (uint32)31,
+			PointSampler = 1 << (uint32)30,
 		}
 
 		[LinkName("ImguiBgfxInitialize")]

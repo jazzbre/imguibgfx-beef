@@ -85,6 +85,8 @@ namespace example
 				return 0;
 			}
 
+			SDL.Log(scope $"How big is my pointer = {sizeof(void*)}");
+
 			// Main loop!
 			var quitting = false;
 			while (!quitting)
