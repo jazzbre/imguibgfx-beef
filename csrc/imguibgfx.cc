@@ -8,7 +8,7 @@
 #include <SDL_syswm.h>
 #include <imgui_impl_sdl.h>
 
-#include "vs_imgui_texture.bin.h"
+#include "vs_ocornut_imgui.bin.h"
 #include "fs_ocornut_imgui.bin.h"
 
 // Constants
@@ -20,7 +20,7 @@ enum class BgfxTextureFlags : uint32_t {
 
 // Shaders
 static const bgfx::EmbeddedShader s_embeddedShaders[] = {
-	BGFX_EMBEDDED_SHADER(vs_imgui_texture),
+	BGFX_EMBEDDED_SHADER(vs_ocornut_imgui),
 	BGFX_EMBEDDED_SHADER(fs_ocornut_imgui),
 	BGFX_EMBEDDED_SHADER_END()
 };
@@ -207,7 +207,7 @@ extern "C" bool ImguiBgfxInitialize(SDL_Window * window) {
 
 	// Just a default texture shader
 	m_program = bgfx::createProgram(
-		bgfx::createEmbeddedShader(s_embeddedShaders, type, "vs_imgui_texture")
+		bgfx::createEmbeddedShader(s_embeddedShaders, type, "vs_ocornut_imgui")
 		, bgfx::createEmbeddedShader(s_embeddedShaders, type, "fs_ocornut_imgui")
 		, true
 	);
