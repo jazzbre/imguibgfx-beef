@@ -27,6 +27,11 @@ project "imguibgfx"
 		path.join(SOURCE_DIR, "../../bgfx-beef/submodules/bgfx/examples/common/imgui/*.h"),
 	}
 
+   configuration { "Debug" }
+      defines { "BX_CONFIG_DEBUG=0" }
+   configuration { "Release" }
+      defines { "BX_CONFIG_DEBUG=1" }
+
 	configuration {}
 	
    configuration { "linux* or vs20* or osx*" }
